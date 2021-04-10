@@ -6,20 +6,35 @@
  * |    \__|_|\_/\___|_| |_|\__/___/    |
  * |____________________________________|
  *
- * 1.  Normalize
- * 2.  Font
+ * 1.  Font
+ * 2.  Normalize
  * 3.  Color
- * 4.  General Classes
-
+ * 5.  Layout and Background
+ * 6.  Header Section
+ * 7.  Developer Section
+ * 8.  Info Section
+ * 9.  Technologies Button
+ * 10. Technologies
+ * 11. Responsive Views
  */
 
 /* ----------------------------------------------------------------------------
- *    1. Normalize
+ *    1. Font
+ * ------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+body {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------------------
+ *    2. Normalize
  * ------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*includes any margin and padding for sizing*/
+    box-sizing: border-box;
 }
 
 a {
@@ -28,31 +43,17 @@ a {
     cursor: pointer;
 }
 
-/* ----------------------------------------------------------------------------
- *    2. Font
- * ------------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-body {
-    font-family: Roboto, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
+html {
+    scroll-behavior: smooth;
 }
 
 /* ----------------------------------------------------------------------------
  *    3. Color
  * ------------------------------------------------------------------------- */
 :root {
-    --fontcolor: rgb(255,255,255);
-    --maincolor: rgb(0,146,223);
-    --maincolordarker: rgb(0,126,203);
-    --dark: rgb(38,38,38);
-
-    --bgbrighter: rgb(48,48,48);
-    --maincolordarkest: rgb(0,105,170);
-    --maincolorshadow: rgba(0,126,203,0.3);
-    --navlinkcolor: rgb(255,255,255);
     --textcolor: rgb(255,255,255);
-    --white: rgb(255,255,255);
+    --maincolor: rgb(0,146,223);
+    --dark: rgb(38,38,38);
 }
 
 ::selection {
@@ -61,122 +62,136 @@ body {
 }
 
 /* ----------------------------------------------------------------------------
- *    4. General Classes
+ *    5. Layout and Background
  * ------------------------------------------------------------------------- */
-.void-xs {height:  6px;}
-.void-s  {height: 12px;}
-.void-m  {height: 18px;}
-.void-l  {height: 24px;}
-.void-xl {height: 30px;}
-  
-
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: var(--maincolor);
     background-image: url(../img/bg.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: repeat;
+    color: var(--textcolor);
+}
 
-    color: var(--fontcolor);
+#backdrop {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(8px);
 }
   
-
-#content {
-    height: 100%;
-    width: 100%;
-    padding: 40px;
+#top-content {
+    height: 100vh;
+    width: 100vw;
+    padding: 8vw;
     display: grid;
     grid-template-areas:
-    "header"
-    "info"
-    "nuts";
-    grid-template-rows: auto 1fr 1fr;
+        "header"
+        "developer"
+        "info"
+        "tech-button";
+    grid-template-rows: auto 1fr 1fr 16vh;
+    grid-template-columns: 100%;;
 }
 
-#header {
-    grid-area: header;
-    display: flex;
+#header {grid-area: header}
+#developer {grid-area: developer}
+#info {grid-area: info}
+#tech-button {grid-area: tech-button}
+
+/* ----------------------------------------------------------------------------
+ *    6. Header Section
+ * ------------------------------------------------------------------------- */
+ #header {
+     display:flex;
+     justify-content: space-between;
+ }
+
+ .icon {
+    height: 16vw;
+    max-height: 68px;
+    width: 16vw;
+    max-width: 68px;
 }
 
-#header-mail,
-#header-github,
-#header-linkedin {
-    margin-right: 20px;
+ #mail {
+    background-image: url(../icons/icon_mail.svg);
+}
+
+#github {
+    background-image: url(../icons/icon_github.svg);
+
+}
+
+#linkedin {
+    background-image: url(../icons/icon_linkedin.svg);
+}
+
+#mail,
+#github,
+#linkedin {
     padding:10px;
     border: 1px solid white;
-    border-radius: 6px;
-}
-
-#header-mail:hover,
-#header-github:hover,
-#header-linkedin:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-#header-mail {
-    background-image: url(../icons/icon_mail.svg);
+    border-radius: 8px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 60% auto;
 }
 
-#header-linkedin {
-    background-image: url(../icons/icon_linkedin.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 30% auto;
+#mail:hover,
+#github:hover,
+#linkedin:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-#header-github {
-    background-image: url(../icons/icon_github.svg);
+/* ----------------------------------------------------------------------------
+ *    7. Developer Section
+ * ------------------------------------------------------------------------- */
+ #developer {
+    background: url(../img/human.png);
     background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 80% auto;
+    background-size: contain;
+    background-position: 50% calc(100% - 2vh);
+    background-size: 46% auto;
 }
 
-#info {
-    grid-area: info;
-    font-size: 4vw;
-
+/* ----------------------------------------------------------------------------
+ *    8. Info Section
+ * ------------------------------------------------------------------------- */
+ #info {
+    font-size: 5vw;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
 .size-mini {
-    font-size: 0.8rem;
+    font-size: 3vw;
     margin-left: 0.4vw;
 }
 
-#nuts {
-    grid-area: nuts;
+/* ----------------------------------------------------------------------------
+ *    9. Technologies Button
+ * ------------------------------------------------------------------------- */
+#tech-button {
+    font-size: 5vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.icon {
-    height: 60px;
-    width: 60px;
-}
 
-#nuts-link {
+#tech-link {
     padding: 20px;
-
     display: flex;
     align-items: center;
 }
 
-#nuts-link:hover {
+#tech-link:hover {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
 }
 
-#nuts-text {
+#tech-text {
     padding: 0 20px;
-    font-size: 3vh;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -185,44 +200,117 @@ body {
 #play {
     width: 0;
     height: 0;
-
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    border-left: 90px solid white;
+    border-left: 10vw solid transparent;
+    border-right: 10vw solid transparent;
+    border-top: 16vw solid white;
 }
 
-@media screen and (max-width: 828px) {
-    #nuts {
+/* ----------------------------------------------------------------------------
+ *    10. Technologies
+ * ------------------------------------------------------------------------- */
+#technologies {
+    min-height: 100vh;
+    padding: 40px;
+}
+
+#technologies > h2 {
+    margin-bottom: 10px;
+}
+
+.divider {
+    height: 2px;
+    width: 100%;
+    background: var(--textcolor);
+    margin-bottom: 40px;
+}
+
+.technology {
+    margin-bottom: 40px;
+}
+
+.technology-icon {
+    height: 20vw;
+    width: auto;
+}
+
+.technology-text {
+    margin-top: 10px;
+}
+
+#tech-os {background-image: url(../img/os.svg);}
+#tech-server {background-image: url(../img/server.svg);}
+#tech-frontend {background-image: url(../img/frontend.svg);}
+
+#tech-os,
+#tech-server,
+#tech-frontend {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* ----------------------------------------------------------------------------
+ *    11. Responsive Views
+ * ------------------------------------------------------------------------- */
+@media screen and (min-width: 420px) {
+    body {
+        background-image: url(../img/bgdesktop.svg);
+    }
+
+    #top-content {
+        padding: 40px;
+        grid-template-areas:
+            "header header"
+            "developer info"
+            "tech-button tech-button";
+        grid-template-rows: auto 1fr 16vh;
+        grid-template-columns: 20% 50%;
+    }
+
+    #header {
+        justify-content: flex-start;
+    }
+
+    #header > a {
+        margin-right: 20px;
+    }
+
+    #info {
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
     }
-
-    #nuts-text {
-        height: 16vw;
-    }
-
-    #play {
-        border-top: 8vw solid transparent;
-        border-bottom: 8vw solid transparent;
-        border-left: 12vw solid white;
-    }
-
-    #nuts-text {
-        font-size: 4vw;
-        height: 100%;
-    }
-    #info {
-        font-size: 6vw;
-    }
-
+    
     .size-mini {
-        margin-left: 3px;
+        font-size: 1rem;
+        margin-left: 0.4vw;
     }
+
+    #developer {
+        background-position: 50% 50%;
+        background-size: 80% auto;
+    }
+
+    #tech-button {
+        font-size: 2rem;
+    }
+    
+    #play {
+        width: 0;
+        height: 0;
+        border-left: 32px solid transparent;
+        border-right: 32px solid transparent;
+        border-top: 44px solid white;
+    }
+
 }
+
+
 
 
 /* ----------------------------------------------------------------------------
  *  99. Message for Unsupported Browsers
- *         (does not require any JavaScript)
+ *      (does not require any JavaScript)
  * ------------------------------------------------------------------------- */
 #ie-message {
     background: rgb(190, 0, 0);

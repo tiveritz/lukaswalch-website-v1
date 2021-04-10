@@ -1,39 +1,67 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-    <div id="content">
-        <div id="header">
-            <a href="mailto:lukas.walch@icloud.com" id="header-mail">
-                <div class="icon"></div>
-            </a>
-            <a href="https://github.com/tiveritz" target="_blank" id="header-github">
-                <div class="icon"></div>
-            </a>
-            <a href="https://www.linkedin.com/in/lukas-walch-5559ba1b6/" target="_blank" id="header-linkedin">
-                <div class="icon"></div>
-            </a>
-            <div class="header-empty">
-            </div>
-        </div>
-        <div id="info">
-            <div>
-                <div>How nice of you to show.</div>
-                <div>Have a look and go nuts!</div>
-                <div class="size-mini">More content is coming soon</div>
-            </div>
-        </div>
-        <!--
-        <div id="nuts">
-            <a href="#" id="nuts-link">
-                <div id="nuts-text">
-                    <div>log in</div>
-                    <div>and go</div>
-                    <div>nuts</div>
+        <div id="backdrop">
+            <div id="top-content">
+                <div id="header">
+                    <a href="mailto:lukas.walch@icloud.com" id="mail">
+                        <div class="icon"></div>
+                    </a>
+                    <a href="https://github.com/tiveritz" target="_blank" id="github">
+                        <div class="icon"></div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lukas-walch-5559ba1b6/" target="_blank" id="linkedin">
+                        <div class="icon"></div>
+                    </a>
                 </div>
-                <div id="play"></div>
-            </a>
+                <div id="developer"></div>
+                <div id="info">
+                    <div>
+                        <div>Passionate Developer.</div>
+                        <div>Enthusiastic Automation Engineer.</div>
+                        <div>Probably a bit crazy, some say.</div>
+                        <div class="size-mini">Lukas Walch</div>
+                    </div>
+                </div>
+                <div id="tech-button">
+                    <a href="#technologies" id="tech-link">
+                        <div id="tech-text">
+                            <div>Show Technologies</div>
+                        </div>
+                        <div id="play"></div>
+                    </a>
+                </div>
+            </div>
+            <div id="technologies">
+                <h2>Operating Systems</h2>
+                <div class="divider"></div>
+                <div class="technology">
+                    <div id="tech-os" class="technology-icon"></div>
+                    <div class="technology-text">
+                        Just because I <strong>can</strong> work on Windows does not mean I
+                        <strong>enjoy it.</strong> Give me a MacBook and I am 10% faster and 42% happier.
+                    </div>
+                </div>
+                <h2>Dev Ops</h2>
+                <div class="divider"></div>
+                <div class="technology">
+                    <div id="tech-server" class="technology-icon"></div>
+                    <div class="technology-text">
+                        I spend a lot of time finding good Continous Integration methods. I
+                        usually deploy my web projects on cloud servers with Ubuntu 20. I always
+                        try to archive one-click deployment on git push, with Docker or Webhooks.
+                    </div>
+                </div>
+                <h2>Frontend</h2>
+                <div class="divider"></div>
+                <div class="technology">
+                    <div id="tech-frontend" class="technology-icon"></div>
+                    <div class="technology-text">
+                        I can make a solid and somewhat visually applying website with HTML5 CSS3
+                        and a smidge of JavaScript. But when it comes to truly great User
+                        Experience I leave that to much more talented Frontend Developers.
+                    </div>
+                </div>
+            </div>
         </div>
-        -->
-    </div>
 {% endblock content %}

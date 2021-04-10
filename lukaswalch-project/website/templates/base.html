@@ -4,16 +4,29 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lukas Walch</title>
+        <link rel="icon" type="image/png" href="{% static './website/icons/favicon.png' %}">
         <link rel="stylesheet" type="text/css" href="{% static './website/css/style.css' %}">
+        <title>Lukas Walch</title>
     </head>
     <body>
-        {% block unsupported %}
-        {% include 'modules/unsupported.html' %}
-        {% endblock unsupported %}
-
-        {% block content %}
-        {% endblock content %}
+        <!--
+        ____________________________________
+       |    _   _             _ _           |
+       |   | |_(_)   _ __ _ _(_) |_ ____    |
+       |   | __| |\ / /_ \ '_| | __|_  /    |
+       |   | |_| | ' / __/ | | | |__/ /_    |
+       |    \__|_|\_/\___|_| |_|\__/___/    |
+       |____________________________________|
+        
+       How nice of you to show. Looking for a Python developer?
+       Get in concat with me and I'll show you what I can do.
+       lukas.walch@icloud.com
+        -->
+{% block unsupported %}
+{% include 'modules/unsupported.html' %}
+{% endblock unsupported %}
+{% block content %}
+{% endblock content %}
 
     </body>
 </html>
