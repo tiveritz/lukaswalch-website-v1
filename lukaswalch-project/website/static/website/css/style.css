@@ -89,7 +89,7 @@ body {
         "developer"
         "info"
         "tech-button";
-    grid-template-rows: auto 1fr 1fr 16vh;
+    grid-template-rows: auto 3fr 2fr 16vh;
     grid-template-columns: 100%;;
 }
 
@@ -175,7 +175,7 @@ body {
     font-size: 5vw;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -200,9 +200,9 @@ body {
 #play {
     width: 0;
     height: 0;
-    border-left: 10vw solid transparent;
-    border-right: 10vw solid transparent;
-    border-top: 16vw solid white;
+    border-left: 8vw solid transparent;
+    border-right: 8vw solid transparent;
+    border-top: 12vw solid white;
 }
 
 /* ----------------------------------------------------------------------------
@@ -228,11 +228,6 @@ body {
     margin-bottom: 40px;
 }
 
-.technology-icon {
-    height: 20vw;
-    width: auto;
-}
-
 .technology-text {
     margin-top: 10px;
 }
@@ -240,18 +235,28 @@ body {
 #tech-os {background-image: url(../img/os.svg);}
 #tech-server {background-image: url(../img/server.svg);}
 #tech-frontend {background-image: url(../img/frontend.svg);}
+#tech-python {background-image: url(../img/python.svg);}
+#tech-java {background-image: url(../img/java.svg);}
+#tech-dotnet {background-image: url(../img/dotnet.svg);}
+#tech-php {background-image: url(../img/php.svg);}
 
-#tech-os,
-#tech-server,
-#tech-frontend {
+.technology-icon {
+    height: 16vh;
+    width: auto;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.technology-small .technology-icon {
+    width: 84px;
+    max-height: 12vh;
 }
 
 /* ----------------------------------------------------------------------------
  *    11. Responsive Views
  * ------------------------------------------------------------------------- */
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 520px) {
     body {
         background-image: url(../img/bgdesktop.svg);
     }
@@ -262,8 +267,8 @@ body {
             "header header"
             "developer info"
             "tech-button tech-button";
-        grid-template-rows: auto 1fr 16vh;
-        grid-template-columns: 20% 50%;
+        grid-template-rows: auto 1fr 20vh;
+        grid-template-columns: 20% 80%;
     }
 
     #header {
@@ -283,7 +288,7 @@ body {
     
     .size-mini {
         font-size: 1rem;
-        margin-left: 0.4vw;
+        margin-left: 0.2rem;
     }
 
     #developer {
@@ -303,6 +308,28 @@ body {
         border-top: 44px solid white;
     }
 
+    .technology {
+        display: grid;
+        grid-template-areas: 
+        "icon text";
+        grid-template-columns: 246px minmax(auto, 560px);
+        grid-gap: 20px;
+    }
+
+    .technology-small {
+        grid-template-columns: 84px minmax(auto, 560px);
+    }
+
+    .technology-icon {
+        grid-area: icon;
+        background-position: 50% 50%;
+    }
+
+    .technology-text {
+        grid-area: text;
+        display: flex;
+        align-items: center;
+    }
 }
 
 
