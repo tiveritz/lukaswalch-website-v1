@@ -15,7 +15,7 @@
  * 8.  Info Section
  * 9.  Technologies Button
  * 10. Technologies
- * 11. Responsive Views
+ * 11. Responsive Desktop View
  */
 
 /* ----------------------------------------------------------------------------
@@ -89,7 +89,7 @@ body {
         "developer"
         "info"
         "tech-button";
-    grid-template-rows: auto 3fr 2fr 16vh;
+    grid-template-rows: auto 3fr 2fr 24vh;
     grid-template-columns: 100%;;
 }
 
@@ -187,7 +187,7 @@ body {
 
 #tech-link:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 6px;
 }
 
 #tech-text {
@@ -254,7 +254,7 @@ body {
 }
 
 /* ----------------------------------------------------------------------------
- *    11. Responsive Views
+ *    11. Responsive Desktop View
  * ------------------------------------------------------------------------- */
 @media screen and (min-width: 520px) {
     body {
@@ -331,9 +331,6 @@ body {
         align-items: center;
     }
 }
-
-
-
 
 /* ----------------------------------------------------------------------------
  *  99. Message for Unsupported Browsers
